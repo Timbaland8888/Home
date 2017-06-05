@@ -1,0 +1,18 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+import MySQLdb as t
+DB_URL = '58.67.220.239'
+USER_NAME = 'root'
+PASS_WORD = '123456'
+DB_NAME = 'qy_urms'
+PORT = 3320
+#打开数据库连接
+db = t.connect(DB_URL,USER_NAME,PASS_WORD,DB_NAME,PORT)
+#使用cursor()方法获取操作游标
+cursor = db.cursor()
+#s使用execute方法执行SQL语句
+cursor.execute('select * from umconfig')
+#使用fetchone()方法获取一条数据库
+data = cursor.fetchall()
+print data
+db.close()
